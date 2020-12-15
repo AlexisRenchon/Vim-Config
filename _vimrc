@@ -86,7 +86,6 @@ function MyDiff()
 endfunction
 
 syntax on
-colorscheme pablo
 let g:vimteractive_vertical = 1  " Vertically split terminals
 set number              " show line numbers
 "set cursorline          " highlight current line
@@ -99,15 +98,43 @@ set showmatch           " highlight matching [{()}]
 set laststatus=0		" Hide bottom bar
 
 
+" Testing some stuff
+if has('gui_running')
+  set guioptions-=T  " no toolbar
+  colorscheme pablo
+  set lines=60 columns=108 linespace=0
+  if has('gui_win32')
+    set guifont=DejaVu_Sans_Mono:h10:cANSI
+  else
+    set guifont=DejaVu\ Sans\ Mono\ 10
+  endif
+endif
 
+" Makes bash open in the working directory
+" let $CHERE_INVOKING=1
+" Default path for Cygwin 64-bit, change accordingly
+" set shell=C:\cygwin64\bin\bash.exe
+" Without --login, Cygwin won't mount some directories such as /usr/bin/
+" set shellcmdflag=--login\ -c
+" Default value is (, but bash needs "
+" set shellxquote=\"
+" Paths will use / instead of \
+" set shellslash
 
+" if has("multi_byte")
+" if &encoding !~? '^u'
+"    if &termencoding == ""
+"      let &termencoding = &encoding
+"    endif
+"    set encoding=utf-8
+"  endif
+"  setglobal fileencoding=utf-8
+"  " Uncomment to have 'bomb' on by default for new files.
+"  " Note, this will not apply to the first, empty buffer created at Vim startup.
+"  "setglobal bomb
+"  set fileencodings=ucs-bom,utf-8,latin1
+" endif
 
-
-
-
-
-
-
-
-
-
+set guifont=JuliaMono:h9:b
+set fenc=utf-8
+set encoding=utf-8
